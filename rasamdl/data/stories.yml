@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+
+# - story: show product path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: give_product_name
+#     entities:
+#     - pro_name: MacBook Pro 15
+#   - slot_was_set:
+#     - pro_name: MacBook Pro 15
+#   - action: action_show_product
+
+- story: ask detail path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_product_details
+  - action: utter_provide_product
+
+- story: ask detail path 2
+  steps:
+  - intent: ask_product_details
+  - action: utter_provide_product
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
